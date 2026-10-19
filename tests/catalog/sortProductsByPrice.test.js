@@ -28,11 +28,6 @@ test("товары [5, 2, 6] c 'desc' сортируются как [2, 5, 6]", 
   expect(sortProductsByPrice(goods, 'desc').map(prod => prod.id)).toEqual([2, 5, 6])
 })
 
-test("товары [5, 2, 6] c 'desc' сортируются как [2, 5, 6]", () => {
-  const goods = [5, 2, 6].map( id => products.find(prod => prod.id === id))
-  expect(sortProductsByPrice(goods, 'desc').map(prod => prod.id)).toEqual([2, 5, 6])
-})
-
 test("'asc' не меняет исходный массив [1, 3, 4]", () => {
   const goods = [1, 3, 4].map( id => products.find(prod => prod.id === id))
   const originalGoods = [...goods]
@@ -48,9 +43,8 @@ test("'desc' не меняет исходный массив [1, 3, 4]", () => {
 })
 
 test('направление по умолчанию не меняет исходный массив всех товаров', () => {
-  const goods = products.map( id => products.find(prod => prod.id === id))
+  const goods = [...products]
   const originalGoods = [...goods]
-  const sortedGoods = sortProductsByPrice(goods)
+  sortProductsByPrice(goods)
   expect(goods).toEqual(originalGoods)
 })
-

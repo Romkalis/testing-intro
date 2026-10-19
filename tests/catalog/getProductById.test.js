@@ -19,13 +19,15 @@ test('Тест: ID 0 возвращает null', () => {
 test('Тест: ID 999 возвращает null', () => {
   expect(getProductById(products, 999)).toEqual(null)
 })
+test('Тест: ID -1 возвращает null', () => {
+  expect(getProductById(products, -1)).toEqual(null)
+})
 test('Тест: строковый ID "1" возвращает null', () => {
   expect(getProductById(products, "1")).toEqual(null)
 })
 test('Тест: ID undefined возвращает null', () => {
-  expect(getProductById(products, "1")).toEqual(null)
+  expect(getProductById(products, undefined)).toEqual(null)
 })
 test('Тест:  ID NaN возвращает null', () => {
   expect(getProductById(products, NaN)).toEqual(null)
 })
-

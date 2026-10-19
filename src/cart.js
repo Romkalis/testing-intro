@@ -1,4 +1,8 @@
 function addToCart(cart, product, quantity = 1) {
+  if (!Number.isInteger(quantity) || quantity <= 0) {
+    throw new RangeError('Количество должно быть положительным целым числом.');
+  }
+
   const existingItem = cart.find((item) => item.id === product.id);
 
   const newQuantity = (existingItem ? existingItem.quantity : 0) + quantity;
@@ -15,6 +19,9 @@ function addToCart(cart, product, quantity = 1) {
   return [...cart, { ...product, quantity }];
 }
 function changeQuantity(cart, id, quantity) {
+  if (!Number.isInteger(quantity) || quantity <= 0) {
+    throw new RangeError('Количество должно быть положительным целым числом.');
+  }
 
   const item = cart.find((product) => product.id === id);
   if (!item) return cart;
