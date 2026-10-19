@@ -22,7 +22,7 @@ function render() {
 
   try {
     const total = cartApi.calculateOrderTotal(cart, promoInput.value);
-    cartTotal.innerHTML = `Товары: ${formatPrice(total.subtotal)}<br>Скидка: −${formatPrice(total.discount)}<br>Доставка: ${formatPrice(total.delivery)}<br><strong>Итого: ${formatPrice(total.total)}</strong>`;
+    cartTotal.innerHTML = `Товары: ${formatPrice(total.subtotal)}<br>Скидка: ${formatPrice(total.discount)}<br>Доставка: ${formatPrice(total.delivery)}<br><strong>Итого: ${formatPrice(total.total)}</strong>`;
   } catch (error) { cartTotal.textContent = 'Итог появится после реализации функций корзины.'; }
 }
 
